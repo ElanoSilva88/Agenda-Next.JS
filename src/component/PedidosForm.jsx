@@ -64,8 +64,9 @@ const PedidosForm = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <div>
+    
+    <form className="" onSubmit={handleSubmit}>
+      <div className="">
         <label htmlFor="cliente">Cliente</label>
         <input
           type="text"
@@ -183,7 +184,7 @@ const PedidosForm = () => {
       </div>
 
       {/* Adicione mais campos e estilos conforme necessário */}
-      <button type="submit">Enviar</button>
+      <button className="" type="submit">Enviar</button>
     </form>
   );
 };
