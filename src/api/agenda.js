@@ -5,29 +5,36 @@ let agenda = [];
 export default function handler(req, res) {
   if (req.method === "GET") {
     res.status(200).json(agenda);
-  } else if (req.method === "POST") {
+  } 
+  else if (req.method === "POST") {
     const novoPedido = req.body; // Assume-se que o corpo da requisição contém os detalhes do novo pedido
     agenda.push(novoPedido);
     res.status(201).json(novoPedido);
-  } else if (req.method === "PUT") {
+  } 
+  else if (req.method === "PUT") {
     const { id, ...dadosAtualizados } = req.body; // Assume-se que o corpo da requisição contém o ID e os novos dados do pedido
     const index = agenda.findIndex((pedido) => pedido.id === id);
     if (index !== -1) {
       agenda[index] = { ...agenda[index], ...dadosAtualizados }; // Atualiza os detalhes do pedido
       res.status(200).json(agenda[index]);
-    } else {
+    } 
+    else {
       res.status(404).json({ message: "Pedido não encontrado" });
     }
-  } else if (req.method === "DELETE") {
+  } 
+  else if (req.method === "DELETE") {
     const { id } = req.body;
     const index = agenda.findIndex((pedido) => pedido.id === id);
+    
     if (index !== -1) {
       agenda.splice(index, 1);
       res.status(200).json({ message: "Pedido excluido com sucesso!" });
-    } else {
+    } 
+    else {
       res.status(404).json({ message: "Pedido não encontrado" });
     }
-  } else {
+  } 
+  else {
     res.status(405).json({ message: "Método não permitido" });
   }
 }
