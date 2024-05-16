@@ -7,8 +7,8 @@ const PedidosForm = () => {
     dataHora: "",
     valorOrçamento: "",
     valorPG: "",
-    localizarCliente: "", // Opções: "instagram", "whatsapp"
-    entrega: "", // Opções: "sim", "nao"
+    localizarCliente: "", 
+    entrega: "", 
     local: "",
   });
 
@@ -16,14 +16,12 @@ const PedidosForm = () => {
     let { value } = event.target;
 
     if (campo === "valorOrçamento" || campo === "valorPG") {
-      // Remova espaços em branco e caracteres não numéricos (exceto vírgula e ponto)
       value = value.replace(/\s/g, "").replace(/[^0-9,.]/g, "");
     }
 
     setPedido({ ...pedido, [campo]: value });
 
     if (campo === "valorOrçamento" || campo === "valorPG") {
-      // Se o campo alterado for 'valorOrçamento' ou 'valorPG', recalcule o campo 'restante'
       setPedido((prevPedido) => ({
         ...prevPedido,
         restante: calcularRestante(
@@ -40,15 +38,14 @@ const PedidosForm = () => {
   };
 
   const formatarReal = (valor) => {
-    // Verifica se o valor é uma string antes de tentar substituir vírgula por ponto
     if (typeof valor === "string") {
-      const numero = parseFloat(valor.replace(",", ".")); // Substitua vírgula por ponto para garantir que parseFloat interprete corretamente
+      const numero = parseFloat(valor.replace(",", ".")); 
       return numero.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
       });
     } else {
-      return ""; // Retorna uma string vazia se o valor não for uma string
+      return ""; 
     }
   };
 
@@ -183,7 +180,6 @@ const PedidosForm = () => {
         />
       </div>
 
-      {/* Adicione mais campos e estilos conforme necessário */}
       <button className="" type="submit">Enviar</button>
     </form>
   );
