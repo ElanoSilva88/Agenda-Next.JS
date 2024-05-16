@@ -69,6 +69,7 @@ const PedidosForm = () => {
           type="text"
           id="cliente"
           name="cliente"
+          placeholder="Nome do Cliente"
           value={pedido.cliente}
           onChange={(e) => handleChange(e, "cliente")}
           required
@@ -80,6 +81,7 @@ const PedidosForm = () => {
           type="text"
           id="descricao"
           name="descricao"
+          placeholder="Tipo do Pedido"
           value={pedido.descricao}
           onChange={(e) => handleChange(e, "descricao")}
         />
@@ -90,6 +92,7 @@ const PedidosForm = () => {
           type="text"
           id="valorOrçamento"
           name="valorOrçamento"
+          placeholder="Valor Total"
           value={pedido.valorOrçamento}
           onChange={(e) => handleChange(e, "valorOrçamento")}
         />
@@ -100,6 +103,7 @@ const PedidosForm = () => {
           type="text"
           id="valorPG"
           name="valorPG"
+          placeholder="Valor Recebido"
           value={pedido.valorPG}
           onChange={(e) => handleChange(e, "valorPG")}
         />
@@ -174,6 +178,7 @@ const PedidosForm = () => {
           type="text"
           id="local"
           name="local"
+          placeholder="Endereço:"
           value={pedido.local}
           onChange={(e) => handleChange(e, "local")}
           required
